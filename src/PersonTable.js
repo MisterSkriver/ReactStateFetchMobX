@@ -5,9 +5,11 @@ import {observer} from "mobx-react";
 @observer
 class PersonTable extends Component {
 
+
+
     render() {
 
-        const rows = factory.persons.map(function(person){
+        const rows = factory.getPersons.map((person) => {
             return(
                 <tr key={person._id}>
                     <td>{person.age}</td>
@@ -20,7 +22,6 @@ class PersonTable extends Component {
                                 <p>{friend.id} {friend.name}</p>
                             )
                         })}
-
                     </td>
                 </tr>)
         });

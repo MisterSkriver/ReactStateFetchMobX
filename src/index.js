@@ -5,7 +5,7 @@ import './index.css';
 import factory from "./personFactory";
 
  ReactDOM.render(
-    <App persons={factory.getPersons()} />,document.getElementById('root')
+    <App persons={factory.getPersons} />,document.getElementById('root')
   );
 
 

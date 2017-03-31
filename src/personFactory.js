@@ -1,6 +1,7 @@
-import {observable,action} from "mobx";
+import {observable,action,useStrict,computed} from "mobx";
 import React from "react";
 
+useStrict(true);
 class PersonFactory extends React.Component{
 
     @observable
@@ -8,8 +9,9 @@ class PersonFactory extends React.Component{
 
     constructor() {
         super();
-        this.persons = [];
+        // this.persons = [];
         setInterval(this.fetchPersons.bind(this),1000);
+        // this.fetchPersons();
 
     }
 
@@ -20,8 +22,8 @@ class PersonFactory extends React.Component{
             .then(action(result => {
                 this.persons.replace(result) }))
     }
-
-    getPersons = () => {
+    @computed
+    get getPersons() {
         return this.persons;
     }
 }
